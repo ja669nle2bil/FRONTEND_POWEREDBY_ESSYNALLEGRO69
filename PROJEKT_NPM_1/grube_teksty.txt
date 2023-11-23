@@ -1,0 +1,4 @@
+npm install --save-dev parcel
+pobierasz misiu
+
+npx parcel src/index.html
