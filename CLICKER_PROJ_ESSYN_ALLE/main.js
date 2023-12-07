@@ -16,9 +16,9 @@ const upgradeThreeLevelElement= document.getElementById('upgrade-3-level');
 const upgradeFourLevelElement= document.getElementById('upgrade-4-level');
 const upgradeFiveLevelElement = document.getElementById('upgrade-5-level');
 //score state:
-let counter=0;
-let scorePerSecond=0;
-let scorePerClick = 0;
+let counter=1;
+let scorePerSecond=1;
+let scorePerClick = 1;
 let upgradeOneLevel=0;
 let upgradeOneCost=15;
 let upgradeOneValue=1;
@@ -36,7 +36,7 @@ let upgradeFiveCost=1000;
 let upgradeFiveValue=30;
 //EventListeners
 clickerButton.addEventListener('click', ()=> {
-    counter==1;
+    counter+=1;
     updateGame();
 });
 upgradeOneButton.addEventListener('click', ()=> {
@@ -85,7 +85,7 @@ function updateButtons(){
     if(counter >= upgradeThreeCost){
         enableButton(upgradeThreeButton);
     } else {
-        disableButton(upgradeThreeCost);
+        disableButton(upgradeThreeButton);
     }
     if(counter >= upgradeFourCost) {
         enableButton(upgradeFourButton);
@@ -110,8 +110,8 @@ function updateScreen(){
     updateButtons();
 }
 function updateGame() {
-    scorePerSecond=
-        (upgradeOneLevel * upgradeOneValue)
+    scorePerSecond=1
+        + (upgradeOneLevel * upgradeOneValue)
         + (upgradeTwoLevel * upgradeTwoValue)
         + (upgradeThreeLevel * upgradeThreeValue)
         + (upgradeFourLevel * upgradeFourValue)
@@ -120,7 +120,7 @@ function updateGame() {
     updateScreen();
 }
 updateScreen();
-setInterval(() => updateGame(), 2000);
+setInterval(() => updateGame(), 1669);
 // import javascriptLogo from './javascript.svg'
 // import viteLogo from '/vite.svg'
 // import { setupCounter } from './counter.js'
