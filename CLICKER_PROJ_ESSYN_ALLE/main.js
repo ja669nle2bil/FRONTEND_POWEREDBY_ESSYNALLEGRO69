@@ -66,9 +66,61 @@ upgradeFiveButton.addEventListener('click', ()=> {
 })
 
 function enableButton(button) {
-    button.removeAtribute('disabled');
+    button.removeAttribute('disabled');
 }
-
+function disableButton(button) {
+    button.setAttribute('disabled', true);
+}
+function updateButtons(){
+    if(counter >= upgradeOneCost) {
+        enableButton(upgradeOneButton);
+    } else {
+        disableButton(upgradeOneButton);
+    }
+    if(counter >= upgradeTwoCost) {
+        enableButton(upgradeTwoButton);
+    } else {
+        disableButton(upgradeTwoButton);
+    }
+    if(counter >= upgradeThreeCost){
+        enableButton(upgradeThreeButton);
+    } else {
+        disableButton(upgradeThreeCost);
+    }
+    if(counter >= upgradeFourCost) {
+        enableButton(upgradeFourButton);
+    } else {
+        disableButton(upgradeFourButton);
+    }
+    if(counter >= upgradeFiveButton){
+        enableButton(upgradeFiveButton);
+    } else {
+        disableButton(upgradeFiveButton);
+    }
+}
+function updateScreen(){
+    counterElement.innerText=counter;
+    scorePerClickElement.innerText=scorePerClick;
+    scorePerSecondElement.innerText=scorePerSecond;
+    upgradeOneLevelElement.innerText=upgradeOneLevel;
+    upgradeTwoLevelElement.innerText=upgradeTwoLevel;
+    upgradeThreeLevelElement.innerText=upgradeThreeLevel;
+    upgradeFourLevelElement.innerText=upgradeFourLevel;
+    upgradeFiveLevelElement.innerText=upgradeFiveLevel;
+    updateButtons();
+}
+function updateGame() {
+    scorePerSecond=
+        (upgradeOneLevel * upgradeOneValue)
+        + (upgradeTwoLevel * upgradeTwoValue)
+        + (upgradeThreeLevel * upgradeThreeValue)
+        + (upgradeFourLevel * upgradeFourValue)
+        + (upgradeFiveLevel * upgradeFiveValue);
+    counter+=scorePerSecond;
+    updateScreen();
+}
+updateScreen();
+setInterval(() => updateGame(), 2000);
 // import javascriptLogo from './javascript.svg'
 // import viteLogo from '/vite.svg'
 // import { setupCounter } from './counter.js'
