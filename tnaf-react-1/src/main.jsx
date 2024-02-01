@@ -5,6 +5,7 @@ import './index.css'
 import ShowUser from "./ShowUser.jsx";
 import UserList from "./UsersList.jsx";
 import Timer from "./Timer.jsx";
+import Tasks from "./task-list/Tasks.jsx";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -16,5 +17,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <UserList></UserList>
     <h1>TIMER TAJMEX</h1>
     <Timer start={5}></Timer>
+    <br/>_________________________________________________________
+    <h1>ESSYN TODO 👱🏾‍♂️😜</h1>
+    <Tasks></Tasks>
   </React.StrictMode>
 )
